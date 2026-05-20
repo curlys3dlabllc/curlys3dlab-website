@@ -3,8 +3,8 @@ import print1 from "./assets/print1.jpeg"
 import print2 from "./assets/print2.jpeg"
 import print3 from "./assets/print3.jpeg"
 import print4 from "./assets/print4.jpeg"
-import timelapse1 from "./assets/timelapse1.MP4"
-import timelapse2 from "./assets/timelapse2.MP4"
+
+
 
 function App() {
   return (
