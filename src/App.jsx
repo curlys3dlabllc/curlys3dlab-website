@@ -100,7 +100,72 @@ function App() {
           ))}
         </div>
       </section>
+<section id="reviews" style={{ padding: "50px 20px" }}>
+  <h2 style={{ color: "#60a5fa", fontSize: "34px" }}>Customer Reviews</h2>
 
+  <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
+    {[
+      "Great quality prints and fast turnaround.",
+      "Helped bring my idea to life exactly how I wanted.",
+      "Professional, creative, and easy to work with."
+    ].map((review, i) => (
+      <div key={i} style={{ background: "#111827", padding: "20px", borderRadius: "15px", width: "260px" }}>
+        <h3>⭐⭐⭐⭐⭐</h3>
+        <p>{review}</p>
+        <strong>- Local Customer</strong>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section id="work" style={{ padding: "50px 20px" }}>
+  <h2 style={{ color: "#60a5fa", fontSize: "34px" }}>Project Gallery</h2>
+
+  <div style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+    maxWidth: "1100px",
+    margin: "0 auto"
+  }}>
+    {[print1, print2, print3, print4].map((img, i) => (
+      <img
+        key={i}
+        src={img}
+        alt={`3D print project ${i + 1}`}
+        style={{
+          width: "100%",
+          height: "230px",
+          objectFit: "cover",
+          borderRadius: "18px",
+          boxShadow: "0 0 20px rgba(96,165,250,0.25)"
+        }}
+      />
+    ))}
+  </div>
+</section>
+
+<footer style={{ padding: "40px 20px", borderTop: "1px solid #1f2937", marginTop: "40px" }}>
+  <h2 style={{ color: "#60a5fa" }}>Curly's 3D Lab</h2>
+  <p>Custom 3D Printing • Scanning • Design</p>
+  <p>Albuquerque, New Mexico</p>
+  <p>
+    <a href="tel:5057803826" style={{ color: "white" }}>505-780-3826</a>
+  </p>
+  <p>
+    <a href="mailto:patduran@curlys3dlabllc.com" style={{ color: "white" }}>
+      patduran@curlys3dlabllc.com
+    </a>
+  </p>
+  <p>
+    <a href="https://www.tiktok.com/@curlys3dlab" target="_blank" style={{ color: "#60a5fa" }}>
+      TikTok: @curlys3dlab
+    </a>
+  </p>
+  <p style={{ color: "#9ca3af", fontSize: "14px" }}>
+    © 2026 Curly's 3D Lab LLC. All rights reserved.
+  </p>
+</footer>
       <section id="quote" style={{ padding: "40px 20px" }}>
         <h2>Request a Quote</h2>
         <p>Tell me what you want made, scanned, designed, or printed.</p>
