@@ -28,7 +28,61 @@ function App() {
           </button>
         </a>
       </section>
+<section
+  id="about"
+  style={{
+    padding: "60px 20px",
+    textAlign: "center",
+    color: "white",
+    maxWidth: "900px",
+    margin: "0 auto",
+  }}
+>
+  <h2
+    style={{
+      fontSize: "36px",
+      marginBottom: "20px",
+      color: "#60a5fa",
+    }}
+  >
+    About Curly's 3D Lab
+  </h2>
 
+  <p
+    style={{
+      fontSize: "18px",
+      lineHeight: "1.8",
+      marginBottom: "20px",
+    }}
+  >
+    Curly's 3D Lab is a locally owned Albuquerque business
+    specializing in custom 3D printing, 3D scanning, prototype
+    design, collectibles, and personalized creations.
+  </p>
+
+  <p
+    style={{
+      fontSize: "18px",
+      lineHeight: "1.8",
+      marginBottom: "20px",
+    }}
+  >
+    We help bring ideas to life through high-quality prints,
+    creative design solutions, and fast turnaround times for
+    both personal and business projects.
+  </p>
+
+  <p
+    style={{
+      fontSize: "18px",
+      lineHeight: "1.8",
+    }}
+  >
+    Whether you need a custom figure, replacement part,
+    business prototype, or large production run, Curly's 3D Lab
+    is focused on quality, creativity, and customer satisfaction.
+  </p>
+</section>
       <section id="services" style={{ padding: "40px 20px" }}>
         <h2>Services</h2>
         <p>Custom 3D Prints</p>
