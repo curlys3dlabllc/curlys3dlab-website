@@ -1,3 +1,4 @@
+import { useState } from "react";
 import hero from "./assets/hero.jpeg";
 import print1 from "./assets/print1.jpeg";
 import print2 from "./assets/print2.jpeg";
@@ -5,24 +6,27 @@ import print3 from "./assets/print3.jpeg";
 import print4 from "./assets/print4.jpeg";
 
 function App() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const galleryImages = [print1, print2, print3, print4];
+
   return (
-    <div style={{ background: "#0b0b0f", color: "white", minHeight: "100vh", fontFamily: "Arial", textAlign: "center" }}>
-      <nav style={{ padding: "20px", display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
-        <a href="#services" style={{ color: "#4da3ff" }}>Services</a>
-        <a href="#about" style={{ color: "#4da3ff" }}>About</a>
-        <a href="#work" style={{ color: "#4da3ff" }}>Gallery</a>
-        <a href="#quote" style={{ color: "#4da3ff" }}>Quote</a>
+    <div style={{ background: "linear-gradient(180deg, #05070d, #0b0b0f)", color: "white", minHeight: "100vh", fontFamily: "Arial", textAlign: "center" }}>
+      <nav style={{ position: "sticky", top: 0, zIndex: 10, padding: "16px", display: "flex", justifyContent: "center", gap: "22px", flexWrap: "wrap", background: "rgba(5,7,13,0.9)", backdropFilter: "blur(8px)" }}>
+        <a href="#services" style={{ color: "#60a5fa" }}>Services</a>
+        <a href="#about" style={{ color: "#60a5fa" }}>About</a>
+        <a href="#work" style={{ color: "#60a5fa" }}>Gallery</a>
+        <a href="#reviews" style={{ color: "#60a5fa" }}>Reviews</a>
+        <a href="#quote" style={{ color: "#60a5fa" }}>Quote</a>
       </nav>
 
-      <section style={{ padding: "30px 20px" }}>
-        <img src={hero} alt="Curly's 3D Lab Logo" style={{ width: "260px", maxWidth: "90%", marginBottom: "25px" }} />
-        <h1 style={{ fontSize: "48px", margin: "0" }}>Curly's 3D Lab</h1>
-        <p style={{ fontSize: "22px", color: "#4da3ff", margin: "10px 0" }}>
-          Custom 3D Printing • Scanning • Design
-        </p>
+      <section style={{ padding: "50px 20px" }}>
+        <img src={hero} alt="Curly's 3D Lab Logo" style={{ width: "280px", maxWidth: "90%", marginBottom: "25px" }} />
+        <h1 style={{ fontSize: "52px", margin: "0" }}>Curly's 3D Lab</h1>
+        <p style={{ fontSize: "23px", color: "#60a5fa" }}>Custom 3D Printing • Scanning • Design</p>
         <p style={{ fontSize: "18px" }}>Turning Ideas Into Reality</p>
+        <p style={{ color: "#93c5fd", fontWeight: "bold" }}>Locally Owned in Albuquerque, New Mexico</p>
         <a href="#quote">
-          <button style={{ marginTop: "20px", padding: "15px 25px", fontSize: "18px", borderRadius: "10px", border: "none", background: "#4da3ff", color: "white" }}>
+          <button style={{ marginTop: "20px", padding: "15px 28px", fontSize: "18px", borderRadius: "12px", border: "none", background: "linear-gradient(135deg, #3b82f6, #60a5fa)", color: "white", boxShadow: "0 0 20px rgba(96,165,250,0.55)" }}>
             Request a Quote
           </button>
         </a>
@@ -61,7 +65,7 @@ function App() {
             "Helped bring my idea to life exactly how I wanted.",
             "Professional, creative, and easy to work with."
           ].map((review, i) => (
-            <div key={i} style={{ background: "#111827", padding: "20px", borderRadius: "15px", width: "260px" }}>
+            <div key={i} style={{ background: "#111827", padding: "22px", borderRadius: "18px", width: "270px", boxShadow: "0 0 18px rgba(96,165,250,0.18)" }}>
               <h3>⭐⭐⭐⭐⭐</h3>
               <p>{review}</p>
               <strong>- Local Customer</strong>
@@ -72,13 +76,15 @@ function App() {
 
       <section id="work" style={{ padding: "50px 20px" }}>
         <h2 style={{ color: "#60a5fa", fontSize: "34px" }}>Project Gallery</h2>
+        <p style={{ color: "#cbd5e1" }}>Click any image to view it larger.</p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px", maxWidth: "1100px", margin: "0 auto" }}>
-          {[print1, print2, print3, print4].map((img, i) => (
+          {galleryImages.map((img, i) => (
             <img
               key={i}
               src={img}
               alt={`3D print project ${i + 1}`}
-              style={{ width: "100%", height: "230px", objectFit: "cover", borderRadius: "18px", boxShadow: "0 0 20px rgba(96,165,250,0.25)" }}
+              onClick={() => setSelectedImage(img)}
+              style={{ width: "100%", height: "230px", objectFit: "cover", borderRadius: "18px", cursor: "pointer", boxShadow: "0 0 20px rgba(96,165,250,0.25)" }}
             />
           ))}
         </div>
@@ -87,8 +93,9 @@ function App() {
       <section id="quote" style={{ padding: "50px 20px" }}>
         <h2 style={{ color: "#60a5fa", fontSize: "34px" }}>Request a Quote</h2>
         <p>Tell me what you want made, scanned, designed, or printed.</p>
+        <p style={{ color: "#cbd5e1" }}>Send pictures, STL files, measurements, or project ideas by email.</p>
         <a href="mailto:patduran@curlys3dlabllc.com?subject=Quote Request for Curly's 3D Lab">
-          <button style={{ padding: "15px 25px", fontSize: "18px", borderRadius: "10px", border: "none", background: "#4da3ff", color: "white" }}>
+          <button style={{ padding: "15px 28px", fontSize: "18px", borderRadius: "12px", border: "none", background: "linear-gradient(135deg, #3b82f6, #60a5fa)", color: "white", boxShadow: "0 0 20px rgba(96,165,250,0.55)" }}>
             Email Quote Request
           </button>
         </a>
@@ -98,11 +105,20 @@ function App() {
         <h2 style={{ color: "#60a5fa" }}>Curly's 3D Lab</h2>
         <p>Custom 3D Printing • Scanning • Design</p>
         <p>Albuquerque, New Mexico</p>
-        <p><a href="tel:5057803826" style={{ color: "white" }}>505-780-3826</a></p>
-        <p><a href="mailto:patduran@curlys3dlabllc.com" style={{ color: "white" }}>patduran@curlys3dlabllc.com</a></p>
-        <p><a href="https://www.tiktok.com/@curlys3dlab" target="_blank" style={{ color: "#60a5fa" }}>TikTok: @curlys3dlab</a></p>
+        <p><a href="tel:5057803826" style={{ color: "white" }}>📞 505-780-3826</a></p>
+        <p><a href="mailto:patduran@curlys3dlabllc.com" style={{ color: "white" }}>✉️ patduran@curlys3dlabllc.com</a></p>
+        <p><a href="https://www.tiktok.com/@curlys3dlab" target="_blank" style={{ color: "#60a5fa" }}>🎵 TikTok: @curlys3dlab</a></p>
         <p style={{ color: "#9ca3af", fontSize: "14px" }}>© 2026 Curly's 3D Lab LLC. All rights reserved.</p>
       </footer>
+
+      {selectedImage && (
+        <div
+          onClick={() => setSelectedImage(null)}
+          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.88)", zIndex: 99, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}
+        >
+          <img src={selectedImage} alt="Large project view" style={{ maxWidth: "95%", maxHeight: "90%", borderRadius: "18px" }} />
+        </div>
+      )}
     </div>
   );
 }
